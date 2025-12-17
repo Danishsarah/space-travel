@@ -144,31 +144,35 @@ function Spacecraft() {
 				{sortedSpacecrafts.map(craft => (
 					<li key={craft.id} className="spacecraft-item">
 						<div className="spacecraft-card">
-							{craft.pictureUrl && (
-								<img 
-									src={craft.pictureUrl} 
-									alt={craft.name}
-									className="spacecraft-image"
-								/>
-							)}
-							<div className="spacecraft-header-card">
-								<strong onClick={() => setSelectedId(craft.id)} className="spacecraft-name">
-									<FaRocket className="icon-small" /> {craft.name}
-								</strong>
-								<span className="capacity-badge">Capacity: {craft.capacity}</span>
-							</div>
-							<p className="spacecraft-description">{craft.description}</p>
-							<div className="spacecraft-actions">
-								<button className="spacecraft-construction-view-details" onClick={() => setSelectedId(craft.id)}>
-									View Details
-								</button>
-								<button 
-									className="spacecraft-return-home-btn"
-									onClick={() => handleReturnHome(craft.id)}
-									aria-label="Return spacecraft to Earth"
-								>
-									<FaHome className="btn-icon" /> Return to Earth
-								</button>
+							<div className="spacecraft-content">
+								{craft.pictureUrl && (
+									<img 
+										src={craft.pictureUrl} 
+										alt={craft.name}
+										className="spacecraft-image"
+									/>
+								)}
+								<div className="spacecraft-text-content">
+									<div className="spacecraft-header-card">
+										<strong onClick={() => setSelectedId(craft.id)} className="spacecraft-name">
+											<FaRocket className="icon-small" /> {craft.name}
+										</strong>
+										<span className="capacity-badge">Capacity: {craft.capacity}</span>
+									</div>
+									<p className="spacecraft-description">{craft.description}</p>
+									<div className="spacecraft-actions">
+										<button className="spacecraft-construction-view-details" onClick={() => setSelectedId(craft.id)}>
+											View Details
+										</button>
+										<button 
+											className="spacecraft-return-home-btn"
+											onClick={() => handleReturnHome(craft.id)}
+											aria-label="Return spacecraft to Earth"
+										>
+											<FaHome className="btn-icon" /> Return to Earth
+										</button>
+									</div>
+								</div>
 							</div>
 						</div>
 					</li>
