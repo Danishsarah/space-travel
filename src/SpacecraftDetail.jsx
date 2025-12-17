@@ -66,6 +66,72 @@ function SpacecraftDetail({ id, onBack }) {
       crew: 850,
       engines: "Matter-Antimatter Reactors",
       range: "Unlimited (Starfleet Operations)"
+    },
+    "xwing-red5": {
+      manufacturer: "Incom Corporation",
+      type: "Starfighter",
+      maxSpeed: "1,050 km/h (atmosphere)",
+      shieldPower: "Deflector Shield Generators",
+      weapons: "4 Laser Cannons, Proton Torpedoes",
+      amenities: ["Astromech Droid Socket", "Hyperdrive", "Life Support"],
+      crew: 1,
+      engines: "Four Fusial Thrust Engines",
+      range: "Hyperdrive capable"
+    },
+    "awing-green": {
+      manufacturer: "Alliance Underground Engineering",
+      type: "Interceptor",
+      maxSpeed: "1,300 km/h (atmosphere)",
+      shieldPower: "Light Deflector Shields",
+      weapons: "2 Rotating Laser Cannons, Concussion Missiles",
+      amenities: ["Hyperdrive", "Targeting Computer"],
+      crew: 1,
+      engines: "Twin Fusial Thrust Engines",
+      range: "Hyperdrive capable"
+    },
+    "ywing-gold": {
+      manufacturer: "Koensayr Manufacturing",
+      type: "Bomber/Fighter",
+      maxSpeed: "1,000 km/h (atmosphere)",
+      shieldPower: "Heavy Deflector Shields",
+      weapons: "2 Laser Cannons, 2 Ion Cannons, Proton Bombs",
+      amenities: ["Hyperdrive", "Ion Cannon Turret", "Astromech Socket"],
+      crew: 2,
+      engines: "Twin Ion Fusial Engines",
+      range: "Hyperdrive capable"
+    },
+    "tie-fighter-sith": {
+      manufacturer: "Sienar Fleet Systems",
+      type: "Space Superiority Fighter",
+      maxSpeed: "1,200 km/h (atmosphere)",
+      shieldPower: "None",
+      weapons: "2 Laser Cannons",
+      amenities: ["None (Minimal Life Support)"],
+      crew: 1,
+      engines: "Twin Ion Engines",
+      range: "Short Range (No Hyperdrive)"
+    },
+    "tie-interceptor": {
+      manufacturer: "Sienar Fleet Systems",
+      type: "Interceptor",
+      maxSpeed: "1,250 km/h (atmosphere)",
+      shieldPower: "None",
+      weapons: "4 Laser Cannons",
+      amenities: ["None (Minimal Life Support)"],
+      crew: 1,
+      engines: "Twin Ion Engines (Enhanced)",
+      range: "Short Range (No Hyperdrive)"
+    },
+    "tie-advanced-vader": {
+      manufacturer: "Sienar Fleet Systems",
+      type: "Advanced Starfighter",
+      maxSpeed: "1,200 km/h (atmosphere)",
+      shieldPower: "Deflector Shields (Prototype)",
+      weapons: "Heavy Laser Cannons, Cluster Missiles",
+      amenities: ["Hyperdrive", "Reinforced Hull", "Enhanced Targeting"],
+      crew: 1,
+      engines: "Twin Ion Engines (Enhanced)",
+      range: "Hyperdrive capable"
     }
   };
 

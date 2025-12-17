@@ -89,6 +89,60 @@ class SpaceTravelMockApi {
           "The USS Enterprise-D is the flagship of the United Federation of Planets. This Galaxy-class starship represents the pinnacle of Starfleet engineering and diplomatic innovation. Equipped with state-of-the-art warp drives capable of Warp 9.6, advanced sensor arrays, and a comprehensive arsenal of photon torpedoes and phaser banks, the Enterprise-D is built for both exploration and defense. The ship features sophisticated computer systems, holodeck technology for recreation and training, and luxurious facilities that make deep space exploration comfortable for its diverse crew of over 1,000. The Enterprise-D has participated in countless historic first contacts and diplomatic missions, serving as a beacon of hope and unity across the galaxy.",
         pictureUrl: null,
         currentLocation: 3
+      },
+      {
+        id: "xwing-red5",
+        name: "X-Wing Starfighter (Red Five)",
+        capacity: 1,
+        description:
+          "The T-65 X-wing starfighter is the backbone of the Rebel Alliance fleet. Famous for its distinctive S-foils that split into an 'X' formation during combat, this versatile fighter is equipped with four powerful laser cannons, proton torpedo launchers, and deflector shields. The iconic Red Five was piloted by Luke Skywalker during the Battle of Yavin, where it delivered the critical shot that destroyed the Death Star. With its reliable hyperdrive, astromech droid socket, and perfect balance of speed and firepower, the X-wing represents hope and freedom across the galaxy.",
+        pictureUrl: null,
+        currentLocation: 4
+      },
+      {
+        id: "awing-green",
+        name: "A-Wing Interceptor",
+        capacity: 1,
+        description:
+          "The RZ-1 A-wing interceptor is the fastest starfighter in the Rebel Alliance arsenal. Built for speed and maneuverability, this sleek wedge-shaped craft can outrun almost any Imperial fighter. Armed with twin rotating laser cannons and concussion missiles, the A-wing excels at hit-and-run tactics and reconnaissance missions. Despite its light armor, skilled pilots use its incredible agility to evade enemy fire. The A-wing played a crucial role in the Battle of Endor, proving that speed and precision can overcome brute force.",
+        pictureUrl: null,
+        currentLocation: 6
+      },
+      {
+        id: "ywing-gold",
+        name: "Y-Wing Bomber",
+        capacity: 2,
+        description:
+          "The BTL Y-wing starfighter is a rugged workhorse that has served the Republic and Rebel Alliance for decades. This ion cannon and proton bomb-equipped bomber is built for sustained assaults on capital ships and ground installations. While not as fast or agile as other fighters, the Y-wing's heavy shielding, dual ion cannons, and massive payload make it devastatingly effective in the right hands. Its exposed engine systems and battle-worn appearance mask a vessel that has won countless victories through sheer determination and firepower.",
+        pictureUrl: null,
+        currentLocation: 5
+      },
+      {
+        id: "tie-fighter-sith",
+        name: "TIE Fighter",
+        capacity: 1,
+        description:
+          "The Twin Ion Engine (TIE) fighter is the Empire's signature starfighter, recognized by its distinctive hexagonal wings and spine-chilling engine scream. Mass-produced for overwhelming numerical superiority, TIE fighters sacrifice shields and hyperdrive for raw speed and maneuverability. Armed with twin laser cannons, these fighters rely on Imperial doctrine: swarm tactics and expendable pilots. The absence of life support systems keeps them lightweight and fast, embodying the Empire's ruthless efficiency and disregard for individual life.",
+        pictureUrl: null,
+        currentLocation: 7
+      },
+      {
+        id: "tie-interceptor",
+        name: "TIE Interceptor",
+        capacity: 1,
+        description:
+          "The TIE/IN Interceptor represents the Empire's answer to Rebel starfighter superiority. Faster and more maneuverable than the standard TIE fighter, the Interceptor features bent solar collection panels and four laser cannons for increased firepower. Reserved for elite Imperial pilots, these deadly craft combine the TIE's signature speed with enhanced combat capability. The Interceptor's aggressive design and superior performance make it a feared opponent, capable of hunting down and eliminating even the most skilled Rebel pilots.",
+        pictureUrl: null,
+        currentLocation: 0
+      },
+      {
+        id: "tie-advanced-vader",
+        name: "TIE Advanced x1 (Darth Vader)",
+        capacity: 1,
+        description:
+          "Darth Vader's personal TIE Advanced x1 represents the pinnacle of Imperial fighter technology. Unlike standard TIE fighters, this prototype features deflector shields, a hyperdrive, and reinforced hull plating. Armed with heavy laser cannons and cluster missiles, the Advanced x1 combines overwhelming firepower with the protection and range that standard TIEs lack. Vader's mastery of the Force combined with this superior craft makes him an unstoppable force in space combat, capable of single-handedly turning the tide of battle.",
+        pictureUrl: null,
+        currentLocation: 7
       }
     ]
   };
