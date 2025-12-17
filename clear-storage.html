@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clear Space Travel Storage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #0a0e27;
+            color: white;
+        }
+        .container {
+            text-align: center;
+            background: #181828;
+            padding: 3rem;
+            border-radius: 12px;
+            border: 2px solid #6cf;
+        }
+        button {
+            background: linear-gradient(90deg, #6cf 0%, #4a9ed9 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        button:hover {
+            background: linear-gradient(90deg, #4a9ed9 0%, #6cf 100%);
+        }
+        .success {
+            color: #6cf;
+            margin-top: 1rem;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Reset Space Travel Data</h1>
+        <p>Click the button below to clear your localStorage and reload the latest spacecraft data.</p>
+        <button onclick="clearStorage()">Clear Storage & Reload</button>
+        <p class="success" id="success">✅ Storage cleared! Redirecting to app...</p>
+    </div>
+    
+    <script>
+        function clearStorage() {
+            localStorage.clear();
+            document.getElementById('success').style.display = 'block';
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
