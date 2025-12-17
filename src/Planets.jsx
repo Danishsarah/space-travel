@@ -43,6 +43,7 @@ function RocketLoader() {
 }
 // ...existing code...
 import React, { useEffect, useState } from "react";
+import { FaSearch, FaSatellite, FaRocket, FaTimes } from "react-icons/fa";
 import SpaceTravelApi from "./services/SpaceTravelApi";
 import SpacecraftConstruction from "./SpacecraftConstruction.jsx";
 import "./planets.css";
@@ -56,6 +57,7 @@ function Planets() {
   const [selectedCraft, setSelectedCraft] = useState(null);
   const [selectedPlanet, setSelectedPlanet] = useState(null);
   const [dispatchError, setDispatchError] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
   // Handle dispatching a spacecraft to a different planet
   async function handleDispatch() {
@@ -130,9 +132,34 @@ function Planets() {
 
   return (
     <div className="planets-container">
-      <h2>Planets</h2>
+      <h2 className="planets-title"><FaSatellite className="icon" /> Planets</h2>
+      
+      {/* Search Bar */}
+      <div className="search-container">
+        <FaSearch className="search-icon" />
+        <input
+          type="text"
+          placeholder="Search planets by name..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="search-input"
+        />
+        {searchTerm && (
+          <button 
+            className="search-clear-btn" 
+            onClick={() => setSearchTerm("")}
+            aria-label="Clear search"
+          >
+            <FaTimes />
+          </button>
+        )}
+      </div>
+
+      {/* Filtered Planets List */}
       <ul className="planet-list">
-        {planets.map(planet =>
+        {planets.filter(planet => 
+          planet.name.toLowerCase().includes(searchTerm.toLowerCase())
+        ).map(planet =>
           <li key={planet.id} className="planet-item">
             <strong>{planet.name}</strong> (Population:{" "}
             {planet.currentPopulation})<br />
@@ -152,12 +179,13 @@ function Planets() {
                   .filter(craft => craft.currentLocation === planet.id)
                   .map(craft =>
                     <li key={craft.id}>
-                      {craft.name} (Capacity: {craft.capacity})
+                      <FaRocket className="icon-small" /> {craft.name} (Capacity: {craft.capacity})
                       <button
                         onClick={() => {
                           setSelectedCraft(craft);
                           setSelectedPlanet(null);
                         }}
+                        className="dispatch-btn"
                       >
                         Dispatch
                       </button>

@@ -1,5 +1,6 @@
 // This file was renamed from SpaceCrafts.jsx to Spacecraft.jsx
 import React, { useEffect, useState } from "react";
+import { FaSearch, FaRocket, FaTrash, FaPlus, FaTimes } from "react-icons/fa";
 import SpaceTravelApi from "./services/SpaceTravelApi";
 import SpacecraftDetail from "./SpacecraftDetail.jsx";
 import SpacecraftConstruction from "./SpacecraftConstruction.jsx";
@@ -23,6 +24,8 @@ function Spacecraft() {
 	const [error, setError] = useState(null);
 	const [selectedId, setSelectedId] = useState(null);
 	const [showConstruction, setShowConstruction] = useState(false);
+	const [searchTerm, setSearchTerm] = useState("");
+	const [sortBy, setSortBy] = useState("name");
 	function RocketLoader() {
 		return (
 			<div className="rocket-loader-container">
@@ -74,22 +77,104 @@ function Spacecraft() {
 	if (showConstruction) {
 		return <SpacecraftConstruction onBack={() => setShowConstruction(false)} onCreated={() => { setShowConstruction(false); fetchSpacecrafts(); }} />;
 	}
+
+	// Filter and sort spacecrafts
+	const filteredSpacecrafts = spacecrafts.filter(craft =>
+		craft.name.toLowerCase().includes(searchTerm.toLowerCase())
+	);
+
+	const sortedSpacecrafts = [...filteredSpacecrafts].sort((a, b) => {
+		if (sortBy === "name") {
+			return a.name.localeCompare(b.name);
+		} else if (sortBy === "capacity") {
+			return b.capacity - a.capacity;
+		}
+		return 0;
+	});
+
 	return (
 		<div className="spacecrafts-container">
-			<h2 className="spacecrafts-title">Spacecrafts</h2>
-			<button onClick={() => setShowConstruction(true)} className="spacecraft-btn">Construct New Spacecraft</button>
+			<div className="spacecrafts-header">
+				<h2 className="spacecrafts-title"><FaRocket className="icon" /> Spacecrafts</h2>
+				<button onClick={() => setShowConstruction(true)} className="spacecraft-btn construct-btn">
+					<FaPlus className="btn-icon" /> Construct New Spacecraft
+				</button>
+			</div>
+
+			{/* Search and Filter Controls */}
+			<div className="search-filter-container">
+				<div className="search-container">
+					<FaSearch className="search-icon" />
+					<input
+						type="text"
+						placeholder="Search by name..."
+						value={searchTerm}
+						onChange={(e) => setSearchTerm(e.target.value)}
+						className="search-input"
+					/>
+					{searchTerm && (
+						<button 
+							className="search-clear-btn" 
+							onClick={() => setSearchTerm("")}
+							aria-label="Clear search"
+						>
+							<FaTimes />
+						</button>
+					)}
+				</div>
+
+				<div className="sort-container">
+					<label htmlFor="sort-select">Sort by:</label>
+					<select 
+						id="sort-select"
+						value={sortBy} 
+						onChange={(e) => setSortBy(e.target.value)}
+						className="sort-select"
+					>
+						<option value="name">Name</option>
+						<option value="capacity">Capacity (Highest First)</option>
+					</select>
+				</div>
+			</div>
+
+			{/* Results Count */}
+			<div className="results-count">
+				Showing {sortedSpacecrafts.length} of {spacecrafts.length} spacecraft(s)
+			</div>
+
 			<ul className="spacecrafts-list">
-				{spacecrafts.map(craft => (
+				{sortedSpacecrafts.map(craft => (
 					<li key={craft.id} className="spacecraft-item">
 						<div className="spacecraft-card">
-							<strong onClick={() => setSelectedId(craft.id)}>{craft.name}</strong> (Capacity: {craft.capacity})<br />
-							{craft.description}<br />
-							<button className="spacecraft-construction-view-details" onClick={() => setSelectedId(craft.id)}>View Details</button>
-							<button onClick={() => handleDecommission(craft.id)}>Decommission</button>
+							<div className="spacecraft-header-card">
+								<strong onClick={() => setSelectedId(craft.id)} className="spacecraft-name">
+									<FaRocket className="icon-small" /> {craft.name}
+								</strong>
+								<span className="capacity-badge">Capacity: {craft.capacity}</span>
+							</div>
+							<p className="spacecraft-description">{craft.description}</p>
+							<div className="spacecraft-actions">
+								<button className="spacecraft-construction-view-details" onClick={() => setSelectedId(craft.id)}>
+									View Details
+								</button>
+								<button 
+									className="spacecraft-decommission-btn"
+									onClick={() => handleDecommission(craft.id)}
+									aria-label="Decommission spacecraft"
+								>
+									<FaTrash className="btn-icon" /> Decommission
+								</button>
+							</div>
 						</div>
 					</li>
 				))}
 			</ul>
+
+			{sortedSpacecrafts.length === 0 && !loading && (
+				<div className="no-results">
+					<p>No spacecrafts found. {searchTerm && "Try adjusting your search."}</p>
+				</div>
+			)}
 		</div>
 	);
 }
