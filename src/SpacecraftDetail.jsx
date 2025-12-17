@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { FaArrowLeft, FaUsers, FaGauge, FaShieldAlt, FaRadiation, FaLightbulb } from "react-icons/fa";
+import {
+  FaArrowLeft,
+  FaUsers,
+  FaRocket,
+  FaShieldAlt,
+  FaRadiation,
+  FaLightbulb
+} from "react-icons/fa";
 import SpaceTravelApi from "./services/SpaceTravelApi";
 import "./spacecraft.css";
 
@@ -10,13 +17,19 @@ function SpacecraftDetail({ id, onBack }) {
 
   // Enhanced spacecraft specifications
   const spacecraftSpecs = {
-    "prispax": {
+    prispax: {
       manufacturer: "Astrolux Industries",
       type: "Luxury Passenger Liner",
       maxSpeed: "Warp 5.2",
       shieldPower: "Quantum Shielding",
       weapons: "None (Civilian)",
-      amenities: ["Luxury Suites", "Fine Dining", "Zero-G Gardens", "VR Entertainment", "Spa & Wellness"],
+      amenities: [
+        "Luxury Suites",
+        "Fine Dining",
+        "Zero-G Gardens",
+        "VR Entertainment",
+        "Spa & Wellness"
+      ],
       crew: 500,
       engines: "Advanced Fusion Drives",
       range: "10,000 light-years"
@@ -27,7 +40,12 @@ function SpacecraftDetail({ id, onBack }) {
       maxSpeed: "Hyperdrive (0.5 past light speed)",
       shieldPower: "Deflector Shields",
       weapons: "Quad Laser Cannons",
-      amenities: ["Compact Quarters", "Cargo Hold", "Smuggler's Compartments", "Hyperdrive"],
+      amenities: [
+        "Compact Quarters",
+        "Cargo Hold",
+        "Smuggler's Compartments",
+        "Hyperdrive"
+      ],
       crew: 2,
       engines: "Corellian Quad Drive",
       range: "Galaxy-wide with hyperdrive"
@@ -38,7 +56,13 @@ function SpacecraftDetail({ id, onBack }) {
       maxSpeed: "Warp 9.6",
       shieldPower: "Graviton Shielding Array",
       weapons: "Photon Torpedoes, Phaser Banks",
-      amenities: ["Holodeck", "Multi-Level Observation Lounge", "Medical Bay", "Science Labs", "Officer's Quarters"],
+      amenities: [
+        "Holodeck",
+        "Multi-Level Observation Lounge",
+        "Medical Bay",
+        "Science Labs",
+        "Officer's Quarters"
+      ],
       crew: 850,
       engines: "Matter-Antimatter Reactors",
       range: "Unlimited (Starfleet Operations)"
@@ -75,112 +99,141 @@ function SpacecraftDetail({ id, onBack }) {
 
   return (
     <div className="spacecraft-detail-container">
-      <button
-        onClick={onBack}
-        className="detail-back-button"
-      >
+      <button onClick={onBack} className="detail-back-button">
         <FaArrowLeft /> Back
       </button>
 
       <div className="detail-header">
-        <h2 className="detail-title">{craft.name}</h2>
-        {specs.type && <p className="detail-type">{specs.type}</p>}
+        <h2 className="detail-title">
+          {craft.name}
+        </h2>
+        {specs.type &&
+          <p className="detail-type">
+            {specs.type}
+          </p>}
       </div>
 
       <div className="detail-content">
         {/* Main Description */}
         <div className="detail-section">
           <h3>Overview</h3>
-          <p className="detail-description">{craft.description}</p>
+          <p className="detail-description">
+            {craft.description}
+          </p>
         </div>
 
         {/* Specifications Grid */}
         <div className="detail-specs-grid">
           <div className="detail-spec-card">
-            <div className="spec-icon"><FaUsers /></div>
+            <div className="spec-icon">
+              <FaUsers />
+            </div>
             <div className="spec-content">
               <h4>Passenger Capacity</h4>
-              <p className="spec-value">{craft.capacity}</p>
+              <p className="spec-value">
+                {craft.capacity}
+              </p>
             </div>
           </div>
 
-          {specs.crew && (
+          {specs.crew &&
             <div className="detail-spec-card">
-              <div className="spec-icon"><FaUsers /></div>
+              <div className="spec-icon">
+                <FaUsers />
+              </div>
               <div className="spec-content">
                 <h4>Crew</h4>
-                <p className="spec-value">{specs.crew}</p>
+                <p className="spec-value">
+                  {specs.crew}
+                </p>
               </div>
-            </div>
-          )}
+            </div>}
 
-          {specs.maxSpeed && (
+          {specs.maxSpeed &&
             <div className="detail-spec-card">
-              <div className="spec-icon"><FaGauge /></div>
+              <div className="spec-icon">
+                <FaRocket />
+              </div>
               <div className="spec-content">
                 <h4>Max Speed</h4>
-                <p className="spec-value">{specs.maxSpeed}</p>
+                <p className="spec-value">
+                  {specs.maxSpeed}
+                </p>
               </div>
-            </div>
-          )}
+            </div>}
 
-          {specs.range && (
+          {specs.range &&
             <div className="detail-spec-card">
-              <div className="spec-icon"><FaRadiation /></div>
+              <div className="spec-icon">
+                <FaRadiation />
+              </div>
               <div className="spec-content">
                 <h4>Operational Range</h4>
-                <p className="spec-value">{specs.range}</p>
+                <p className="spec-value">
+                  {specs.range}
+                </p>
               </div>
-            </div>
-          )}
+            </div>}
 
-          {specs.manufacturer && (
+          {specs.manufacturer &&
             <div className="detail-spec-card">
-              <div className="spec-icon"><FaLightbulb /></div>
+              <div className="spec-icon">
+                <FaLightbulb />
+              </div>
               <div className="spec-content">
                 <h4>Manufacturer</h4>
-                <p className="spec-value">{specs.manufacturer}</p>
+                <p className="spec-value">
+                  {specs.manufacturer}
+                </p>
               </div>
-            </div>
-          )}
+            </div>}
 
-          {specs.engines && (
+          {specs.engines &&
             <div className="detail-spec-card">
-              <div className="spec-icon"><FaGauge /></div>
+              <div className="spec-icon">
+                <FaRocket />
+              </div>
               <div className="spec-content">
                 <h4>Propulsion System</h4>
-                <p className="spec-value">{specs.engines}</p>
+                <p className="spec-value">
+                  {specs.engines}
+                </p>
               </div>
-            </div>
-          )}
+            </div>}
         </div>
 
         {/* Systems Information */}
         <div className="detail-systems">
-          {specs.shieldPower && (
+          {specs.shieldPower &&
             <div className="system-info">
-              <h4><FaShieldAlt className="icon-inline" /> Defensive Systems</h4>
-              <p>{specs.shieldPower}</p>
-            </div>
-          )}
+              <h4>
+                <FaShieldAlt className="icon-inline" /> Defensive Systems
+              </h4>
+              <p>
+                {specs.shieldPower}
+              </p>
+            </div>}
 
-          {specs.weapons && (
+          {specs.weapons &&
             <div className="system-info">
               <h4>Weapons</h4>
-              <p>{specs.weapons}</p>
-            </div>
-          )}
+              <p>
+                {specs.weapons}
+              </p>
+            </div>}
 
-          {specs.amenities && specs.amenities.length > 0 && (
+          {specs.amenities &&
+            specs.amenities.length > 0 &&
             <div className="system-info">
               <h4>Amenities & Features</h4>
               <ul className="amenities-list">
-                {specs.amenities.map((amenity, idx) => (
-                  <li key={idx}>{amenity}</li>
-                ))}
+                {specs.amenities.map((amenity, idx) =>
+                  <li key={idx}>
+                    {amenity}
+                  </li>
+                )}
               </ul>
-            </div>
-          )}
+            </div>}
         </div>
 
         {craft.pictureUrl &&
@@ -190,8 +243,7 @@ function SpacecraftDetail({ id, onBack }) {
               alt={craft.name}
               className="detail-image"
             />
-          </div>
-        }
+          </div>}
       </div>
     </div>
   );
