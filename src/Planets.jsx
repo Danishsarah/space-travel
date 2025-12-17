@@ -132,8 +132,10 @@ function Planets() {
 
   return (
     <div className="planets-container">
-      <h2 className="planets-title"><FaSatellite className="icon" /> Planets</h2>
-      
+      <h2 className="planets-title">
+        <FaSatellite className="icon" /> Planets
+      </h2>
+
       {/* Search Bar */}
       <div className="search-container">
         <FaSearch className="search-icon" />
@@ -141,60 +143,62 @@ function Planets() {
           type="text"
           placeholder="Search planets by name..."
           value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          onChange={e => setSearchTerm(e.target.value)}
           className="search-input"
         />
-        {searchTerm && (
-          <button 
-            className="search-clear-btn" 
+        {searchTerm &&
+          <button
+            className="search-clear-btn"
             onClick={() => setSearchTerm("")}
             aria-label="Clear search"
           >
             <FaTimes />
-          </button>
-        )}
+          </button>}
       </div>
 
       {/* Filtered Planets List */}
       <ul className="planet-list">
-        {planets.filter(planet => 
-          planet.name.toLowerCase().includes(searchTerm.toLowerCase())
-        ).map(planet =>
-          <li key={planet.id} className="planet-item">
-            <strong>{planet.name}</strong> (Population:{" "}
-            {planet.currentPopulation})<br />
-            {planet.pictureUrl &&
-              <img
-                className="planet-img"
-                src={planet.pictureUrl}
-                alt={planet.name}
-              />}
-            <div>
-              <em>Stationed Spacecraft:</em>
-              <ul className="stationed-list">
-                {spacecrafts.filter(
-                  craft => craft.currentLocation === planet.id
-                ).length === 0 && <li>None</li>}
-                {spacecrafts
-                  .filter(craft => craft.currentLocation === planet.id)
-                  .map(craft =>
-                    <li key={craft.id}>
-                      <FaRocket className="icon-small" /> {craft.name} (Capacity: {craft.capacity})
-                      <button
-                        onClick={() => {
-                          setSelectedCraft(craft);
-                          setSelectedPlanet(null);
-                        }}
-                        className="dispatch-btn"
-                      >
-                        Dispatch
-                      </button>
-                    </li>
-                  )}
-              </ul>
-            </div>
-          </li>
-        )}
+        {planets
+          .filter(planet =>
+            planet.name.toLowerCase().includes(searchTerm.toLowerCase())
+          )
+          .map(planet =>
+            <li key={planet.id} className="planet-item">
+              <strong>{planet.name}</strong> (Population:{" "}
+              {planet.currentPopulation})<br />
+              {planet.pictureUrl &&
+                <img
+                  className="planet-img"
+                  src={planet.pictureUrl}
+                  alt={planet.name}
+                />}
+              <div>
+                <em>Stationed Spacecraft:</em>
+                <ul className="stationed-list">
+                  {spacecrafts.filter(
+                    craft => craft.currentLocation === planet.id
+                  ).length === 0 && <li>None</li>}
+                  {spacecrafts
+                    .filter(craft => craft.currentLocation === planet.id)
+                    .map(craft =>
+                      <li key={craft.id}>
+                        <FaRocket className="icon-small" /> {craft.name}{" "}
+                        (Capacity: {craft.capacity})
+                        <button
+                          onClick={() => {
+                            setSelectedCraft(craft);
+                            setSelectedPlanet(null);
+                          }}
+                          className="dispatch-btn"
+                        >
+                          Dispatch
+                        </button>
+                      </li>
+                    )}
+                </ul>
+              </div>
+            </li>
+          )}
       </ul>
       {selectedCraft &&
         <div className="dispatch-panel">
