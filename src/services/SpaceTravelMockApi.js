@@ -67,6 +67,22 @@ class SpaceTravelMockApi
                      "Safety remains paramount with cosmic radiation shielding and top-tier medical facilities. The Astrolux Odyssey not only advances space exploration but redefines elegance, uniting humanity's thirst for knowledge with a taste of the sublime.",
         pictureUrl: null,
         currentLocation: 2
+      },
+      {
+        id: "falcon-mk1",
+        name: "Millennium Falcon",
+        capacity: 6,
+        description: "The legendary Millennium Falcon is a modified Corellian freighter that has made a name for itself across the galaxy. Don't judge her by her appearance—this ship has the heart of a champion. Capable of hyperdrive speeds that rival military cruisers, the Falcon is equipped with quad laser cannons, a deflector shield generator, and an advanced AI-assisted navigation system. Her quick reflexes and incredible maneuverability make her the perfect escape vessel, and she's proven her worth in countless dangerous missions. The captain's seat has seen pilots of legendary skill, and she remains one of the most iconic ships ever built.",
+        pictureUrl: null,
+        currentLocation: 1
+      },
+      {
+        id: "enterprise-d",
+        name: "USS Enterprise-D",
+        capacity: 1014,
+        description: "The USS Enterprise-D is the flagship of the United Federation of Planets. This Galaxy-class starship represents the pinnacle of Starfleet engineering and diplomatic innovation. Equipped with state-of-the-art warp drives capable of Warp 9.6, advanced sensor arrays, and a comprehensive arsenal of photon torpedoes and phaser banks, the Enterprise-D is built for both exploration and defense. The ship features sophisticated computer systems, holodeck technology for recreation and training, and luxurious facilities that make deep space exploration comfortable for its diverse crew of over 1,000. The Enterprise-D has participated in countless historic first contacts and diplomatic missions, serving as a beacon of hope and unity across the galaxy.",
+        pictureUrl: null,
+        currentLocation: 3
       }
     ]
   };
