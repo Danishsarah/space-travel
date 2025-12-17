@@ -244,8 +244,8 @@
   transform: translateY(-2px);
 }
 
-.spacecraft-decommission-btn {
-  background: #c41c3b;
+.spacecraft-return-home-btn {
+  background: #2d7a3e;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -259,8 +259,8 @@
   font-size: 0.95rem;
 }
 
-.spacecraft-decommission-btn:hover {
-  background: #a01830;
+.spacecraft-return-home-btn:hover {
+  background: #3a9b50;
   transform: translateY(-2px);
 }
 
@@ -371,7 +371,7 @@
   }
 
   .spacecraft-construction-view-details,
-  .spacecraft-decommission-btn {
+  .spacecraft-return-home-btn {
     flex: 1;
     justify-content: center;
   }

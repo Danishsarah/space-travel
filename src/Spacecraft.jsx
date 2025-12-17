@@ -1,6 +1,6 @@
 // This file was renamed from SpaceCrafts.jsx to Spacecraft.jsx
 import React, { useEffect, useState } from "react";
-import { FaSearch, FaRocket, FaTrash, FaPlus, FaTimes } from "react-icons/fa";
+import { FaSearch, FaRocket, FaHome, FaPlus, FaTimes } from "react-icons/fa";
 import SpaceTravelApi from "./services/SpaceTravelApi";
 import SpacecraftDetail from "./SpacecraftDetail.jsx";
 import SpacecraftConstruction from "./SpacecraftConstruction.jsx";
@@ -48,13 +48,23 @@ function Spacecraft() {
 	useEffect(() => {
 		fetchSpacecrafts();
 	}, []);
-	async function handleDecommission(id) {
-		if (!window.confirm("Are you sure you want to decommission this spacecraft?")) return;
+	async function handleReturnHome(id) {
+		const craft = spacecrafts.find(s => s.id === id);
+		if (!craft) return;
+		
+		if (craft.currentLocation === 2) {
+			alert("This spacecraft is already at Earth (Home Planet).");
+			return;
+		}
+		
+		if (!window.confirm(`Send ${craft.name} back to Earth?`)) return;
+		
 		try {
-			await SpaceTravelApi.destroySpacecraftById({ id });
+			await SpaceTravelApi.sendSpacecraftToPlanet({ spacecraftId: id, targetPlanetId: 2 });
 			fetchSpacecrafts();
+			alert(`${craft.name} is returning to Earth!`);
 		} catch {
-			alert("Failed to decommission spacecraft.");
+			alert("Failed to send spacecraft home.");
 		}
 	}
 	if (loading) return <RocketLoader />;
@@ -146,11 +156,11 @@ function Spacecraft() {
 									View Details
 								</button>
 								<button 
-									className="spacecraft-decommission-btn"
-									onClick={() => handleDecommission(craft.id)}
-									aria-label="Decommission spacecraft"
+									className="spacecraft-return-home-btn"
+									onClick={() => handleReturnHome(craft.id)}
+									aria-label="Return spacecraft to Earth"
 								>
-									<FaTrash className="btn-icon" /> Decommission
+									<FaHome className="btn-icon" /> Return to Earth
 								</button>
 							</div>
 						</div>
