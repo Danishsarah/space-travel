@@ -144,6 +144,13 @@ function Spacecraft() {
 				{sortedSpacecrafts.map(craft => (
 					<li key={craft.id} className="spacecraft-item">
 						<div className="spacecraft-card">
+							{craft.pictureUrl && (
+								<img 
+									src={craft.pictureUrl} 
+									alt={craft.name}
+									className="spacecraft-image"
+								/>
+							)}
 							<div className="spacecraft-header-card">
 								<strong onClick={() => setSelectedId(craft.id)} className="spacecraft-name">
 									<FaRocket className="icon-small" /> {craft.name}
