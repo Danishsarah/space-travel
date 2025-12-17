@@ -1,0 +1,71 @@
+.navbar-back-button-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  z-index: 999;
+  background: transparent;
+  padding-left: 2.5em;
+  pointer-events: none;
+}
+
+.navbar-back-button-container .navbar-back-button {
+  pointer-events: auto;
+}
+.navbar-back-button {
+  font-size: 1.1rem;
+  font-weight: bold;
+  background: #6cf;
+  color: #222;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  margin-right: 1.5em;
+  margin-left: 0.5em;
+  padding: 0.5em 1.2em;
+  letter-spacing: 0.5px;
+}
+
+.navbar-back-button:hover,
+.navbar-back-button:focus {
+  background: #fff;
+  color: #222;
+  border-color: #6cf;
+}
+.back-button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5em 1em;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.back-button:hover,
+.back-button:focus {
+  background: #6cf;
+  color: #222;
+}
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+  background: #222;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.nav-item {
+  cursor: pointer;
+  font-weight: bold;
+}
