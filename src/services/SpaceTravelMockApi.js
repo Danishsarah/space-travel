@@ -58,6 +58,48 @@ class SpaceTravelMockApi {
         currentPopulation: 0,
         pictureUrl:
           "https://upload.wikimedia.org/wikipedia/commons/0/06/Neptune.jpg"
+      },
+      {
+        id: 8,
+        name: "Tatooine",
+        currentPopulation: 200000,
+        pictureUrl:
+          "https://upload.wikimedia.org/wikipedia/en/6/6d/Tatooine_%28fictional_desert_planet%29.jpg"
+      },
+      {
+        id: 9,
+        name: "Naboo",
+        currentPopulation: 4500000000,
+        pictureUrl:
+          "https://static.wikia.nocookie.net/starwars/images/f/f0/Naboo_planet.png"
+      },
+      {
+        id: 10,
+        name: "Coruscant",
+        currentPopulation: 1000000000000,
+        pictureUrl:
+          "https://static.wikia.nocookie.net/starwars/images/1/16/Coruscant-EotE.jpg"
+      },
+      {
+        id: 11,
+        name: "Hoth",
+        currentPopulation: 0,
+        pictureUrl:
+          "https://static.wikia.nocookie.net/starwars/images/1/1d/Hoth_SWCT.png"
+      },
+      {
+        id: 12,
+        name: "Endor",
+        currentPopulation: 30000000,
+        pictureUrl:
+          "https://static.wikia.nocookie.net/starwars/images/1/1d/Endor_FFGRebellion.png"
+      },
+      {
+        id: 13,
+        name: "Mustafar",
+        currentPopulation: 20000,
+        pictureUrl:
+          "https://static.wikia.nocookie.net/starwars/images/3/32/Mustafar.jpg"
       }
     ],
     spacecrafts: [
