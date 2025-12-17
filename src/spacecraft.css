@@ -376,3 +376,232 @@
     justify-content: center;
   }
 }
+
+/* Spacecraft Detail View Styles */
+.spacecraft-detail-container {
+  padding: 2rem;
+  margin-top: 70px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+}
+
+.detail-back-button {
+  background: linear-gradient(90deg, #6cf 0%, #4a9ed9 100%);
+  color: #222;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.detail-back-button:hover {
+  background: linear-gradient(90deg, #4a9ed9 0%, #6cf 100%);
+  transform: translateY(-2px);
+}
+
+.detail-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  border-bottom: 2px solid #6cf;
+  padding-bottom: 2rem;
+}
+
+.detail-title {
+  color: #6cf;
+  font-family: 'Orbitron', Arial, Helvetica, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin: 0 0 0.5rem 0;
+  text-shadow: 0 2px 8px rgba(76, 175, 255, 0.12);
+}
+
+.detail-type {
+  color: #aaa;
+  font-size: 1.2rem;
+  font-style: italic;
+  margin: 0;
+}
+
+.detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.detail-section {
+  background: #1a2233;
+  border: 2px solid #6cf;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.detail-section h3 {
+  color: #6cf;
+  font-size: 1.4rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.detail-description {
+  color: #ddd;
+  line-height: 1.8;
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Specifications Grid */
+.detail-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.detail-spec-card {
+  background: linear-gradient(135deg, #1a2233 0%, #232b3a 100%);
+  border: 2px solid #6cf;
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.detail-spec-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(76, 175, 255, 0.2);
+}
+
+.spec-icon {
+  font-size: 1.8rem;
+  color: #6cf;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spec-content {
+  flex: 1;
+}
+
+.spec-content h4 {
+  color: #6cf;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 0.5rem 0;
+}
+
+.spec-value {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Systems Information */
+.detail-systems {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.system-info {
+  background: #1a2233;
+  border: 2px solid #6cf;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.system-info h4 {
+  color: #6cf;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon-inline {
+  font-size: 1.2rem;
+}
+
+.system-info p {
+  color: #ddd;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.amenities-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.amenities-list li {
+  color: #ddd;
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.amenities-list li:before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  color: #6cf;
+  font-weight: bold;
+}
+
+/* Detail Image Section */
+.detail-image-section {
+  text-align: center;
+}
+
+.detail-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 3px solid #6cf;
+  max-height: 400px;
+  box-shadow: 0 8px 24px rgba(76, 175, 255, 0.2);
+}
+
+/* Responsive Detail View */
+@media (max-width: 768px) {
+  .spacecraft-detail-container {
+    padding: 1rem;
+  }
+
+  .detail-title {
+    font-size: 1.8rem;
+  }
+
+  .detail-specs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-systems {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-spec-card {
+    padding: 1rem;
+  }
+
+  .spec-icon {
+    font-size: 1.5rem;
+  }
+}
