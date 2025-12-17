@@ -73,8 +73,8 @@ function SpacecraftDetail({ id, onBack }) {
     () => {
       async function fetchCraft() {
         try {
-          const data = await SpaceTravelApi.getSpacecraftById({ id });
-          setCraft(data);
+          const response = await SpaceTravelApi.getSpacecraftById({ id });
+          setCraft(response.data);
         } catch (err) {
           setError("Failed to load spacecraft details.");
         } finally {
