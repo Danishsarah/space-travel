@@ -15,8 +15,8 @@ Space Travel is an interactive web application that allows users to explore plan
 
 Before you begin, ensure you have the following installed on your system:
 
-- **Node.js**: v14.0.0 or higher ([Download](https://nodejs.org/))
-- **npm**: v6.0.0 or higher (comes with Node.js)
+- **Node.js**: v18.0.0 or higher ([Download](https://nodejs.org/))
+- **npm**: v9.0.0 or higher (comes with Node.js)
 - **Git**: v2.0.0 or higher ([Download](https://git-scm.com/))
 
 ## Installation
@@ -46,6 +46,10 @@ Before you begin, ensure you have the following installed on your system:
 - `npm run preview` - Preview the production build locally
 - `npm test` - Run the test suite
 - `npm run test:watch` - Run tests in watch mode
+- `npm run lint` - Run ESLint
+- `npm run lint:fix` - Run ESLint with auto-fix
+- `npm run format` - Format code with Prettier
+- `npm run format:check` - Check formatting with Prettier
 
 ## Tech Stack
 
@@ -53,23 +57,53 @@ Before you begin, ensure you have the following installed on your system:
 - **Build Tool**: Vite
 - **Styling**: CSS Modules
 - **Testing**: Jest
+- **Linting/Formatting**: ESLint, Prettier
 - **State Management**: React Hooks
+
+## Tooling & Config
+
+- **Lint config**: [.eslintrc.cjs](.eslintrc.cjs)
+- **Format config**: [.prettierrc.json](.prettierrc.json)
+- **Format ignore**: [.prettierignore](.prettierignore)
+- **Jest config**: [jest.config.cjs](jest.config.cjs)
+- **Jest setup**: [setupTests.js](setupTests.js)
+
+## CI
+
+GitHub Actions runs lint, test, and build on push/PR to `main`: [.github/workflows/ci.yml](.github/workflows/ci.yml)
 
 ## Project Structure
 
 ```
 src/
-├── components/
-│   ├── Planets.jsx
-│   ├── Spacecraft.jsx
-│   ├── SpacecraftConstruction.jsx
-│   └── SpacecraftDetail.jsx
+├── App.jsx
+├── App.module.css
+├── App.test.jsx
+├── Planets.jsx
+├── Planets.test.jsx
+├── Spacecraft.jsx
+├── Spacecraft.test.jsx
+├── SpacecraftConstruction.jsx
+├── SpacecraftConstruction.css
+├── SpacecraftConstruction.test.jsx
+├── SpacecraftDetail.jsx
+├── SpacecraftDetail.test.jsx
+├── index.css
+├── main.jsx
+├── navbar.jsx
+├── navbar.js
+├── navbar.css
+├── navbar.test.jsx
+├── planets.css
+├── spacecraft.css
 ├── services/
 │   ├── SpaceTravelApi.js
 │   └── SpaceTravelMockApi.js
-├── App.jsx
-└── main.jsx
 ```
+
+## Data & APIs
+
+The app currently uses an in-memory mock data source for planets and spacecraft. The API surface lives in [src/services/SpaceTravelApi.js](src/services/SpaceTravelApi.js) and delegates to [src/services/SpaceTravelMockApi.js](src/services/SpaceTravelMockApi.js).
 
 ## Contributing
 
